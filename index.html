@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islam Sebagai Agama, Bukan Identitas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0a9bb;
+        }
+        .top-header {
+            background-color: #e77ad5;
+            color: rgb(8, 8, 8);
+            padding: 10px 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .top-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+        }
+        .brand img {
+            height: 50px;
+            border-radius: 35px;
+            margin-right: 15px;
+        }
+        .brand-text h1 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .brand-text p {
+            font-size: 14px;
+        }
+        .top-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 14px;
+        }
+        .top-links a:hover {
+            text-decoration: underline;
+        }
+        nav {
+            background-color: #d638bc;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        .nav-menu li {
+            position: relative;
+            margin-right: 20px;
+        }
+        .nav-menu li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 0;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        .nav-menu li a:hover {
+            color: #f5bfec;
+        }
+        .nav-menu li ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #e77ad5;
+            width: 200px;
+            list-style: none;
+            padding: 10px;
+            border-radius: 0 0 4px 4px;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .nav-menu li:hover ul {
+            display: block;
+        }
+        .nav-menu li ul li {
+            margin: 10px 0;
+        }
+        .search-box {
+            display: flex;
+        }
+        .search-box input {
+            padding: 8px 10px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            width: 200px;
+        }
+        .search-box button {
+            padding: 8px 15px;
+            background-color: #f5bfec;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            color: #2c0325;
+            font-weight: bold;
+        }
+        .main-content {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .article-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 29px;
+            color: #8a3168;
+            margin-bottom: 10px;
+        }
+        .author {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        .date {
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .article-image {
+            max-width: 190%;
+            height: 15000%;
+            border-radius: 5px;
+        }
+        .article-content {
+            text-align: justify;
+        }
+        .article-content p {
+            margin-bottom: 20px;
+        }
+        .article-content h3 {
+            padding-top: 60px;
+            margin-top: -60px;
+        }
+        
+        .article-page {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .source {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        footer {
+            background-color: #c549b0;
+            color: white;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 15px;
+        }
+        
+        /* Modal/Popup Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 200;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+        }
+        
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            max-width: 700px;
+            width: 80%;
+            position: relative;
+            animation: modalopen 0.4s;
+        }
+        
+        @keyframes modalopen {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #8a3168;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .modal-title {
+            color: #8a3168;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .modal-body {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        
+        .modal-footer {
+            text-align: right;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        
+        .modal-footer button {
+            background-color: #e77ad5;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .modal-footer button:hover {
+            background-color: #d638bc;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .top-header-content, .nav-container {
+                flex-direction: column;
+            }
+            .brand, .top-links, .nav-menu, .search-box {
+                margin-bottom: 10px;
+            }
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+            }
+            .nav-menu li {
+                margin: 5px 0;
+                width: 100%;
+            }
+            .nav-menu li ul {
+                position: static;
+                display: block;
+                width: 100%;
+                margin-left: 20px;
+                box-shadow: none;
+                padding: 0;
+            }
+            .search-box {
+                width: 100%;
+            }
+            .search-box input {
+                width: 70%;
+            }
+            .search-box button {
+                width: 30%;
+            }
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="top-header">
+        <div class="container top-header-content">
+            <div class="brand">
+                <img src="UPB.png">
+                <div class="brand-text">
+                    <h1>Universitas Pelita Bangsa</h1>
+                    <p>Navrida Rully Anastasya</p>
+                </div>
+            </div>
+            <div class="top-links">
+                <a href="#">Beranda</a>
+                <a href="#">Tentang Kami</a>
+                <a href="#">Kontak</a>
+                <a href="#">Login</a>
+            </div>
+        </div>
+    </header>
+
+<!-- Navigation -->
+<nav>
+    <div class="container nav-container">
+        <ul class="nav-menu">
+            <li><a href="#">Beranda</a></li>
+            <li>
+                <a href="#" onclick="showPopup('kategori'); return false;">Kategori</a>
+            </li>
+            <li>
+                <a href="#">Artikel Lainnya</a>
+                <ul>
+                    <li><a href="#" onclick="changePage('maysir-page'); return false;">Hati - Hati Dengan Maysir: Saat Bisnis Tergelincir Jadi Judi</a></li>
+                    <li><a href="#" onclick="changePage('bisnis-page'); return false;">Bisnis Berkah di Era Digital: Memadukan Prinsip Islam dan Inovasi E-commerce</a></li>
+                    <li><a href="#" onclick="changePage('syariah-page'); return false;">Bank Syariah: Pilar Kemandirian Ekonomi Umat di Era Modern</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="search-box">
+            <input type="text" placeholder="Cari artikel...">
+            <button>Cari</button>
+        </div>
+    </div>
+</nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="article-header">
+            <h1>Pemasaran Islam: Strategi Bisnis Berkah dan Beretika</h1>
+            <div class="author">Disusun oleh : Navrida Rully Anastasya</div>
+            <div class="date">Bekasi, 23 Maret 2025</div>
+        </div>
+
+        <div class="image-container">
+            <img src="pemasaran.jpg">
+        </div>
+
+        <div class="article-content">
+            <h3>PENGERTIAN PEMASARAN ISLAMI</h3>
+            <p>Pemasaran Islami adalah konsep pemasaran yang berlandaskan nilai-nilai Islam, di mana seluruh proses pemasaran dilakukan sesuai dengan prinsip-prinsip syariah. Pemasaran ini tidak hanya berfokus pada keuntungan duniawi, tetapi juga memperhatikan etika, moral, dan tanggung jawab sosial sesuai dengan ajaran Islam.</p>
+            <p>Pemasaran Islami mencakup kegiatan mengenali, memahami, dan memenuhi kebutuhan serta keinginan konsumen dengan cara yang halal, adil, dan penuh keberkahan. Tujuan akhirnya bukan hanya mendapatkan keuntungan materi, tetapi juga mencapai keberkahan dan ridha Allah SWT.</p>
+            
+            <h3 id="konsep-karakteristik">KONSEP DAN KARAKTERISTIK PEMASARAN ISLAMI</h3>
+            <p>Pemasaran Islami ini ialah pendekatan pemasaran yang berlandaskan nilai-nilai Islam, seperti kejujuran, keadilan, dan keberkahan. Karakteristiknya meliputi </p>
+            <p> <h4>1. Kehalalan produk</h4>Produk yang dipasarkan harus halal dan tidak mengandung unsur haram.  
+            <br><h4>2. Kejujuran dan transparansi</h4>Tidak boleh ada penipuan atau manipulasi dalam pemasaran.  
+            <br><h4>3. Keadilan</h4>Harga dan keuntungan harus wajar serta tidak merugikan pihak lain.  
+            <br><h4>4. Keberkahan</h4>Produk dan layanan harus memberi manfaat bagi masyarakat.  
+            </p>
+            
+            <h3 id="prinsip-pemasaran">PRINSIP PEMASARAN ISLAMI</h3>
+            <p>Prinsip utama dalam pemasaran Islami mengacu pada ajaran Al-Qur'an dan hadis, antara lain:  </p>
+            <p> <h4>1. Tauhid (keimanan kepada Allah)</h4>Pemasaran dilakukan dengan niat ibadah dan menjaga kepercayaan kepada Allah. 
+            <br><h4>2. Amanah (kepercayaan dan tanggung jawab)</h4>Menjalankan bisnis dengan penuh tanggung jawab dan menjaga kepercayaan pelanggan.
+            <br><h4>3. Keadilan (tidak zalim)</h4>Menghindari eksploitasi dan menyeimbangkan hak antara penjual dan pembeli.  
+            <br><h4>4. Maslahah (kemanfaatan bagi banyak orang)</h4>Pemasaran harus dilakukan dengan niat mencari keberkahan, bukan sekadar keuntungan duniawi.  
+            <br><h4>5. Ridha (kerelaan antara pihak yang bertransaksi)</h4>Tidak boleh ada unsur paksaan atau penipuan.
+            </p>
+            
+            <h3 id="etika-akhlak">ETIKA ATAU AKHLAK DALAM PEMASARAN ISLAMI</h3>
+            <p>Dalam Islam, pemasaran harus dilakukan dengan etika yang baik, di antaranya: </p>
+            <p> <h4>1. Tidak menipu atau berbohong</h4>Informasi produk harus jujur dan tidak menyesatkan. 
+            <br><h4>2. Menghindari riba dan gharar (ketidakpastian)</h4>Transaksi harus jelas dan tidak mengandung unsur yang merugikan salah satu pihak 
+            <br><h4>3. Tidak melakukan eksploitasi atau monopoli</h4>Harus menghindari tindakan yang merugikan pasar dan konsumen.
+            <br><h4>4. Menggunakan strategi promosi yang baik</h4>Tidak boleh menggunakan cara-cara yang merendahkan atau menipu konsumen. 
+            </p>
+            
+            <h3 id="strategi-pemasaran">STARATEGI DALAM PEMASARAN ISLAMI</h3>
+            <p>Strategi pemasaran Islami mencakup pendekatan yang sesuai dengan nilai-nilai Islam, seperti:  </p>
+            <p> <h4>1. Segmentasi pasar berbasis nilai Islam</h4>Menargetkan konsumen yang peduli dengan produk halal dan berkah.  
+            <br><h4>2. Promosi yang etis dan edukatif</h4>Menggunakan media promosi yang tidak menyesatkan, tetapi justru memberi edukasi kepada konsumen.   
+            <br><h4>3. Pelayanan yang baik (ihsan)</h4>Harga dan keuntungan harus wajar serta tidak merugikan pihak lain.  Menjaga kepuasan pelanggan dengan memberikan pelayanan yang ramah dan adil.  
+            <br><h4>4. Menjalin hubungan baik dengan pelanggan</h4>Mengedepankan ukhuwah Islamiyah (persaudaraan dalam Islam) dalam berbisnis.   
+            </p>
+            <P>Pemasaran Islami bukan sekadar menjual produk, tetapi juga mengedepankan nilai-nilai moral dan keberkahan dalam setiap transaksi. Pemasaran Islami bukan hanya sekadar menjual produk, tetapi juga memastikan seluruh proses bisnis dilakukan dengan cara yang halal, jujur, dan adil sesuai dengan ajaran Islam. Dengan menerapkan prinsip-prinsip syariah, bisnis tidak hanya mendapatkan keuntungan finansial tetapi juga keberkahan dalam jangka panjang.</P>
+            <P>Pemasaran Islami bisa menjadi strategi bisnis yang lebih berkelanjutan karena mengutamakan kepercayaan, keadilan, dan kesejahteraan umat. Oleh karena itu, bisnis yang menerapkan konsep ini cenderung mendapatkan loyalitas pelanggan yang lebih kuat serta dampak positif bagi masyarakat luas.</P>
+        </div>
+    </div>
+
+    <!-- Article Page -->
+    <div id="maysir-page" class="article-page" style="display: none;">
+        <div class="article-header">
+            <h1>Hati - Hati Dengan Maysir: Saat Bisnis 
+            <br>Tergelincir Jadi Judi</h1>
+            <div class="author">Disusun oleh : Navrida Rully Anastasya</div>
+            <div class="date">Bekasi, 04 Mei 2025</div>
+        </div>
+
+        <div class="image-container">
+            <img src="maysir.png" width="660" height="400">
+        </div>
+
+        <div class="article-content">
+            <p>Dalam labirin aktivitas ekonomi yang kian kompleks, garis demarkasi antara praktik bisnis yang beretika dan jebakan spekulasi yang merugikan seringkali tersembunyi di balik gemerlap janji keuntungan instan. Konsep maysir, sebuah istilah yang merujuk pada perjudian atau transaksi yang didominasi oleh unsur untung-untungan dan ketidakpastian yang ekstrem, menjadi rambu peringatan krusial dalam lanskap etika bisnis. Tanpa kehati-hatian dan pemahaman yang mendalam, model bisnis yang awalnya tampak inovatif dan menggiurkan dapat dengan mudah terperosok menjadi praktik maysir yang tidak hanya menggerogoti fondasi finansial, tetapi juga mengikis nilai-nilai moral dan spiritual.</p>
+            
+            <h3 id="menelisik-lebih-dalam">MENELISIK LEBIH DALAM ESENSI MAYSIR</h3>
+            <p>Akar kata maysir dalam khazanah bahasa Arab mengandung makna kemudahan dan kekayaan yang diperoleh tanpa usaha keras, layaknya mendapatkan hadiah tanpa jerih payah. Namun, esensinya lebih dari sekadar keuntungan instan. Maysir mencakup setiap transaksi di mana kepastian hasil sangat rendah, dan keuntungan satu pihak secara inheren terkait dengan kerugian pihak lain melalui mekanisme pertaruhan. Unsur ketidakjelasan (gharar) yang signifikan menjadi karakteristik utama maysir, menciptakan situasi di mana informasi asimetris dan potensi manipulasi sangat tinggi. Dalam era digital ini, manifestasi maysir semakin beragam, menyusup ke dalam berbagai platform investasi dan model bisnis online yang tampak modern.</p>
+            
+            <h3 id="jejak-masyir">JEJAK MAYSIR DALAM DUNIA BISNIS KONTEMPORER</h3>
+            <p>Bentuk-bentuk praktik bisnis yang berpotensi mengandung jebakan maysir terus berevolusi seiring dengan perkembangan teknologi dan inovasi finansial:</p>
+            <p> <h4>1. Skema Piramida dan Investasi Bodong Berbasis Ponzi</h4>Model bisnis yang menjanjikan keuntungan luar biasa tinggi dalam waktu singkat, namun sumber keuntungannya tidak jelas dan berkelanjutan. Pembayaran kepada investor awal sepenuhnya bergantung pada masuknya investor baru, menciptakan ilusi keuntungan yang akan runtuh ketika aliran dana baru terhenti. Kasus-kasus seperti ini, sayangnya, seringkali memakan banyak korban dengan kerugian finansial yang besar.
+            <br><h4>2. Perdagangan Derivatif dan Forex dengan Leverage Ekstrem</h4>Meskipun merupakan instrumen keuangan yang sah, perdagangan valuta asing dan produk derivatif dengan leverage (daya ungkit) yang sangat tinggi dapat berubah menjadi arena maysir bagi para trader ritel yang kurang berpengalaman. Keputusan trading yang didasarkan pada emosi dan spekulasi murni, tanpa analisis fundamental dan teknikal yang solid, lebih menyerupai perjudian daripada investasi yang terukur.
+            <br><h4>3. Model Bisnis Game Online dengan Unsur Taruhan Tersembunyi</h4>Beberapa game online populer menawarkan fitur di mana pemain dapat membeli item virtual atau mata uang dalam game dengan uang sungguhan, yang kemudian dapat dipertaruhkan dalam interaksi antar pemain atau bahkan ditukar kembali menjadi uang melalui pihak ketiga. Batasan antara hiburan dan perjudian menjadi kabur dalam model bisnis semacam ini.
+            <br><h4>4. Promosi Penjualan dengan Undian Berhadiah Besar yang Tidak Transparan</h4>Jika sebuah bisnis terlalu gencar mempromosikan undian atau giveaway dengan hadiah fantastis sebagai daya tarik utama, sementara nilai produk atau layanan yang ditawarkan menjadi sekunder, ini dapat mengarah pada praktik maysir. Kurangnya transparansi dalam mekanisme undian dan potensi manipulasi menjadi perhatian serius.
+            <br><h4>5. Penawaran "Peluang Investasi" dengan Janji Keuntungan Pasti Tanpa Risiko</h4>Setiap investasi yang sah pasti mengandung risiko. Penawaran investasi yang menjanjikan keuntungan tetap tanpa risiko sama sekali patut dicurigai dan seringkali berujung pada praktik penipuan yang mengandung unsur maysir.
+            </p>
+            
+            <h3 id="konsekuensi-destruktif">KONSEKUENSI DESTRUKTIF MAYSIR BAGI EKOSISTEM BISNIS</h3>
+            <p>Implikasi negatif maysir dalam dunia bisnis jauh melampaui sekadar kerugian finansial individu:</p>
+            <p> <h4>a. Distorsi Pasar dan Alokasi Sumber Daya yang Tidak Efisien</h4>Praktik spekulatif mengalihkan modal dari investasi produktif yang menciptakan nilai riil ke dalam aktivitas yang hanya menghasilkan keuntungan berdasarkan keberuntungan semata.
+            <br><h4>b. Ketidakstabilan Sistem Keuangan</h4>Aktivitas maysir yang meluas dapat menciptakan gelembung aset yang tidak berkelanjutan dan meningkatkan risiko krisis keuangan sistemik.
+            <br><h4>c. Eksploitasi dan Ketidakadilan Sosial</h4>Skema maysir sering kali mengeksploitasi mereka yang kurang berpengetahuan dan mudah tergiur dengan janji keuntungan cepat, memperlebar jurang ketidaksetaraan ekonomi.
+            <br><h4>d. Kerusakan Moral dan Etika Bisnis</h4>Mendorong mentalitas serakah, tidak bertanggung jawab, dan mengabaikan prinsip-prinsip kerja keras dan kejujuran dalam berusaha.
+            <br><h4>e. Regulasi yang Lebih Ketat dan Hilangnya Kepercayaan Publik</h4>Maraknya praktik maysir dapat memaksa pemerintah untuk memberlakukan regulasi yang lebih ketat, yang pada akhirnya dapat menghambat inovasi dan pertumbuhan bisnis yang sehat. Hilangnya kepercayaan publik terhadap dunia usaha juga menjadi kerugian yang sulit dipulihkan.
+            </p>
+
+            <h3 id="meneguhkan-komitmen">MENEGUHKAN KOMITMEN PADA BISNIS YANG BERKAH DAN BERETIKA</h3>
+            <p>Menghindari jebakan maysir dan membangun bisnis yang berintegritas memerlukan komitmen yang kuat pada prinsip-prinsip etika:</p>
+            <p> <h4>1. Mengedepankan Transparansi Informasi</h4>Menyajikan informasi yang akurat, jujur, dan lengkap mengenai produk, layanan, dan risiko yang terkait.
+            <br><h4>2. Membangun Model Bisnis yang Berkelanjutan</h4>Fokus pada penciptaan nilai riil melalui inovasi, efisiensi, dan pemenuhan kebutuhan konsumen.
+            <br><h4>3. Melakukan Analisis Risiko yang Mendalam</h4>Memahami dan mengelola risiko secara bertanggung jawab, serta menghindari spekulasi yang tidak terukur.
+            <br><h4>4. Mengutamakan Keadilan dalam Setiap Transaksi</h4>Memastikan bahwa setiap pihak yang terlibat dalam transaksi mendapatkan manfaat yang adil sesuai dengan kontribusi mereka.
+            <br><h4>5. Menjunjung Tinggi Tanggung Jawab Sosial</h4>Mempertimbangkan dampak bisnis terhadap masyarakat dan lingkungan sekitar.
+            </p>
+            
+            <p>Godaan keuntungan instan dan kekayaan tanpa usaha seringkali menjadi daya tarik utama maysir. Namun, sebagai pelaku bisnis yang bertanggung jawab, kita harus memiliki visi jangka panjang yang melampaui keuntungan sesaat. Bisnis yang dibangun di atas fondasi etika yang kuat, transparansi, dan nilai riil akan lebih устойчивый (berkelanjutan) dan memberikan manfaat yang lebih luas bagi masyarakat. Mari kita berhati-hati agar bisnis yang kita jalankan tidak tergelincir menjadi arena perjudian yang merugikan, namun tetap menjadi sumber keberkahan dan kemajuan bersama. Ingatlah, keberhasilan sejati diraih melalui kerja keras, inovasi, dan integritas, bukan melalui untung-untungan dan spekulasi semata.</p> 
+            
+            
+            <h3 id="sumber-referensi-dan-studi-kasusnya">SUMBER REFERENSI DAN STUDI KASUS NYA</h3>
+            <h4>a. Referensi :</h4>
+            <a href="https://darulabroribs.sch.id/memahami-etika-bisnis-dalam-islam">Memahami Etika Bisnis dalam Islam - Darul Abror IBS</a> 
+            <br>
+            <a href="https://jurnal.iainambon.ac.id/index.php/am/article/view/9202/2418">PENERAPAN PRINSIP LARANGAN MAYSIR, GHARAR, DAN RIBA DALAM BANK SYARIAH Abstrak - e-Journal Institut Agama Islam Negeri Ambon</a> 
+            <br>
+            <a href="https://jurnal.fanshurinstitute.org/index.php/jimmi/article/download/99/64">Nilai-Nilai Ekonomi dan Etika Bisnis Dalam Perspektif Islam</a> 
+            <br>
+            <a href="https://repositori.uin-alauddin.ac.id/15699/1/Muhammad%20Arif_Sebelum%20Revisi.pdf">RIBA, GHARAR DAN MAISIR DALAM EKONOMI ISLAM PASCASARJANA UIN ALAUDDIN MAKASSAR 2019</a> 
+            <br>
+            <br>
+            <h4>b. Studi Kasusnya  :</h4>
+            <h5>1. Investasi Bodong Skema Ponzi</h5>Kasus-kasus investasi bodong dengan skema Ponzi sering terjadi di berbagai negara dan menjadi contoh klasik praktik maysir dalam bisnis modern. Informasi mengenai kasus ini dapat ditemukan dalam berbagai berita dan laporan investigasi.
+            <br><h5>2. Perjudian Online dan Permainan Chip Domino</h5><a href="https://repository.iainpare.ac.id/id/eprint/6479/1/18.2200.092.pdf">SKRIPSI TINJAUAN MAYSIR TERHADAP PERMAINAN CHIP DOMINO VIA APLIKASI ANDROID DIKALANGAN MASYARAKAT Studi Kasus Desa Wiringtasi K</a> membahas bagaimana permainan chip domino online dapat mengandung unsur maysir jika melibatkan taruhan.
+            <br><h5>3. Analisis Maysir pada Transaksi Permainan Capit Boneka</h5><a href="https://ejurnal.iainpare.ac.id/index.php/sipakainge/article/download/9989/2362/">ANALISIS MAYSIR PADA TRANSAKSI PERMAINAN CAPIT BONEKA - Sao Jurnal IAIN Parepare</a> menganalisis unsur maysir dalam permainan capit boneka.
+            <br><h5>4. Transaksi yang Mengandung Unsur Riba, Maysir, dan Gharar:</h5><a href="https://journal.ummat.ac.id/index.php/telaah/article/download/2608/pdf"> Transaksi yang Mengandung Unsur Riba, Maysir, dan Gharar dalam Kajian Tindak Tutur - Universitas Muhammadiyah Mataram</a> membahas contoh-contoh transaksi yang mengandung unsur maysir dalam masyarakat.
+            <br>
+            <br>
+            <br>
+            <h3>Berikut adalah contoh studi kasus dengan model bisnis yang tersebar di internet yang tidak sesuai dengan akhlak atau perilaku jual beli yang baik :</h3>
+            <img src="screenshot.png" width="770" height="400">
+            <h4>Menurut opini pribadi saya terkait studi kasus diatas ialah :</h4>
+            <p>Berita tentang penyelundupan pekerja migran Indonesia ke Malaysia melalui jalur resmi pelabuhan, seperti yang diungkap oleh BBC News Indonesia, sungguh menggugah nurani dan menimbulkan keprihatinan mendalam. Praktik ini tidak hanya mencerminkan lemahnya pengawasan di perbatasan, tetapi juga menunjukkan betapa sistematis dan terorganisirnya jaringan perdagangan manusia yang melibatkan oknum-oknum yang seharusnya menjadi penjaga hukum dan keamanan.
+            <br>
+            <br>Melihat bagaimana calon pekerja migran diperlakukan—dikenakan biaya tinggi, dipaksa melalui jalur ilegal dengan dalih resmi, dan bahkan menghadapi situasi mencekam di kapal—menunjukkan betapa rentannya posisi mereka. Mereka bukan hanya menjadi korban eksploitasi ekonomi, tetapi juga korban dari sistem yang gagal melindungi hak-hak dasar warganya.
+            <br>
+            <br>Yang lebih menyedihkan adalah dugaan keterlibatan oknum petugas imigrasi dan polisi dalam praktik ini. Ketika aparat yang seharusnya melindungi justru menjadi bagian dari masalah, kepercayaan publik terhadap institusi negara pun tergerus. Hal ini menuntut tindakan tegas dan transparan dari pemerintah untuk membersihkan institusi dari oknum-oknum yang mencoreng nama baiknya.
+            <br>
+            <br>Pemerintah perlu mengambil langkah konkret untuk memperkuat sistem pengawasan di perbatasan, memberikan edukasi kepada calon pekerja migran tentang prosedur resmi, dan memastikan bahwa jalur legal benar-benar aman dan dapat diakses oleh semua. Selain itu, kerja sama dengan negara tujuan seperti Malaysia harus ditingkatkan untuk memastikan perlindungan bagi pekerja migran dan penindakan terhadap jaringan perdagangan manusia.
+            <br>
+            <br>Sebagai masyarakat, kita juga memiliki peran dalam menyuarakan ketidakadilan ini dan mendukung upaya-upaya yang bertujuan untuk melindungi hak-hak pekerja migran. Mereka adalah pahlawan devisa yang layak mendapatkan perlindungan dan penghormatan, bukan menjadi korban dari sistem yang korup dan tidak adil.
+            <br>
+            <br>Semoga dengan perhatian dan tindakan bersama, kita dapat menghentikan praktik keji ini dan membangun sistem yang lebih manusiawi dan adil bagi semua warga negara.</p>
+                
+
+
+            <div class="back-button" style="text-align: center; margin-top: 20px;">
+                <button onclick="returnToMainPage()" style="background-color: #e77ad5; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold;">Kembali ke Halaman Utama</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Article Page -->
+    <div id="bisnis-page" class="article-page" style="display: none;">
+        <div class="article-header">
+            <h1>Bisnis Berkah di Era Digital:  
+            <br>Memadukan Prinsip Islam dan Inovasi E-commerce</h1>
+            <div class="author">Disusun oleh : Navrida Rully Anastasya</div>
+            <div class="date">Bekasi, 08 Juni 2025</div>
+        </div>
+
+        <div class="image-container">
+            <img src="bisnis.png" width="660" height="400">
+        </div>
+
+        <div class="article-content">
+            <p>Di era digital ini, bisnis telah mengalami transformasi besar, termasuk dalam komunitas Muslim. Untuk memahami bagaimana prinsip-prinsip Islam diterapkan dalam praktik bisnis modern, kita akan membahas beberapa aspek penting: pengertian bisnis, dasar-dasar regulasi (fikih), tujuan, dan aplikasi e-commerce, semuanya dalam konteks bisnis kontemporer Islami.</p>
+            
+            <h3 id="pengertian-bisnis-kontemporer-islami">PENGERTIAN BISNIS KONTEMPORER ISLAMI</h3>
+            <p>Secara umum, bisnis adalah segala aktivitas yang dilakukan individu atau organisasi untuk menciptakan, mendistribusikan, dan menjual barang atau jasa dengan tujuan mendapatkan keuntungan. Namun, dalam konteks bisnis kontemporer Islami, pengertian ini diperkaya dengan dimensi spiritual dan etika.</p>
+            <p><br>Bisnis Kontemporer Islami adalah aktivitas ekonomi yang tidak hanya bertujuan mencari keuntungan duniawi, tetapi juga berlandaskan pada prinsip-prinsip syariah Islam. Ini berarti setiap aspek bisnis, mulai dari produksi, distribusi, pemasaran, hingga transaksi keuangan, harus sesuai dengan nilai-nilai Al-Qur'an dan Sunnah. Bisnis Islami menekankan pada keadilan, kejujuran, transparansi, tanggung jawab sosial, dan menghindari praktik-praktik yang dilarang dalam Islam, seperti riba (bunga), gharar (ketidakpastian atau spekulasi berlebihan), dan maysir (judi). Profitabilitas tetap menjadi tujuan, tetapi tidak dengan mengorbankan nilai-nilai moral dan etika Islam.
+            </p>
+            
+            <h3 id="dasar-fikih-bisnis-kontemporer-islami">DASAR FIKIH BISNIS KONTEMPORER ISLAMI</h3>
+            <p>Regulasi dalam bisnis Islami didasarkan pada fikih muamalah, yaitu cabang ilmu fikih yang membahas tentang interaksi antarmanusia dalam kehidupan sosial dan ekonomi. Dasar-dasar fikih ini menjadi pedoman utama dalam menjalankan bisnis yang sesuai syariah:</p>
+            <p> <h4>•	Al-Qur'an:</h4>Sumber hukum utama dalam Islam. Ayat-ayat Al-Qur'an memberikan prinsip-prinsip umum tentang keadilan dalam bermuamalah, larangan riba, larangan memakan harta orang lain secara batil, dan anjuran untuk berdagang secara jujur. Contohnya adalah firman Allah SWT dalam Surah Al-Baqarah ayat 275 yang menghalalkan jual beli dan mengharamkan riba.
+            <br><h4>•	As-Sunnah:</h4>Perkataan, perbuatan, dan ketetapan Nabi Muhammad SAW yang berfungsi sebagai penjelas dan pelengkap Al-Qur'an. Sunnah memberikan panduan praktis tentang berbagai jenis transaksi, etika berdagang, larangan penipuan, dan anjuran bersedekah.
+            <br><h4>•	Ijma' (Konsensus Ulama):</h4>Kesepakatan para ulama mujtahid tentang suatu hukum syariat setelah wafatnya Nabi Muhammad SAW. Ijma' sering digunakan untuk menetapkan hukum atas masalah-masalah kontemporer yang tidak dijelaskan secara eksplisit dalam Al-Qur'an dan Sunnah.
+            <br><h4>•	Qiyas (Analogi):</h4>Penetapan hukum suatu masalah baru dengan menganalogikannya pada masalah yang sudah ada hukumnya dalam Al-Qur'an dan Sunnah, karena adanya kesamaan 'illah (alasan hukum). Misalnya, analogi transaksi keuangan baru dengan bentuk-bentuk jual beli yang telah diatur dalam fikih klasik.
+            <br><h4>•	Maslahah Mursalah (Kemaslahatan Umum):</h4>Prinsip yang mempertimbangkan kemaslahatan atau manfaat yang tidak secara spesifik diperintahkan atau dilarang dalam syariah, tetapi sejalan dengan tujuan syariah. Ini sering digunakan dalam pengembangan produk dan layanan keuangan syariah baru.
+            <p><br>Dasar-dasar fikih ini membentuk kerangka kerja yang komprehensif bagi bisnis Islami, memastikan bahwa semua transaksi dilakukan dengan cara yang etis dan adil, menjaga hak-hak semua pihak, dan memberikan manfaat bagi masyarakat luas.</p>
+            </p>
+            
+            <h3 id="tujuan-bisnis-kontemporer-islami">TUJUAN BISNIS KONTEMPORER ISLAMI</h3>
+            <p>Tujuan bisnis dalam Islam melampaui sekadar mencari keuntungan material. Ada beberapa tujuan utama yang menjadi landasan bagi pelaku bisnis Muslim:</p>
+            <p> <h4>a. Mencari Keridhaan Allah SWT</h4>Ini adalah tujuan tertinggi dalam setiap aktivitas seorang Muslim, termasuk berbisnis. Dengan menjalankan bisnis sesuai syariah dan beretika, seorang Muslim berharap mendapatkan pahala dan keridhaan dari Allah SWT.
+            <br><h4>b. Memperoleh Keuntungan yang Halal (Profitabilitas)</h4>Profitabilitas tetap menjadi tujuan penting karena keuntungan yang halal memungkinkan bisnis untuk berkembang, menciptakan lapangan kerja, dan memberikan kesejahteraan bagi pemilik dan karyawan. Keuntungan ini juga dapat digunakan untuk tujuan amal dan investasi yang bermanfaat.
+            <br><h4>c. Memenuhi Kebutuhan Masyarakat (Falah)</h4>Bisnis Islami bertujuan untuk menyediakan barang dan jasa yang bermanfaat dan berkualitas tinggi bagi masyarakat, sehingga membantu mereka mencapai kesejahteraan di dunia dan akhirat (falah). Ini mencakup inovasi produk dan layanan yang memenuhi kebutuhan dasar dan meningkatkan kualitas hidup.
+            <br><h4>d. Menciptakan Keadilan dan Keseimbangan Ekonomi</h4>Bisnis Islami berusaha mengurangi kesenjangan ekonomi dan menciptakan distribusi kekayaan yang lebih merata. Ini diwujudkan melalui praktik-praktik seperti larangan riba, anjuran zakat dan sedekah, serta investasi dalam sektor riil yang bermanfaat bagi banyak orang.
+            <br><h4>e. Menjaga Tanggung Jawab Sosial dan Lingkungan</h4>Dalam Islam, manusia adalah khalifah (pemimpin) di bumi, yang berarti memiliki tanggung jawab untuk menjaga lingkungan dan berkontribusi positif kepada masyarakat. Bisnis Islami didorong untuk menjalankan praktik bisnis yang berkelanjutan, peduli terhadap dampak sosial dan lingkungan, serta memberikan kontribusi melalui corporate social responsibility (CSR).
+            </p>
+
+            <h3 id="aplikasi-e-commerce-dalam-bisnis-kontemporer Islami">APLIKASI E-COMMERCE DALAM BISNIS KONTEMPORER ISLAMI</h3>
+            <p>E-commerce atau perdagangan elektronik telah merevolusi cara bisnis beroperasi, dan prinsip-prinsip Islam dapat diterapkan secara efektif dalam ranah ini. Aplikasi e-commerce dalam bisnis kontemporer Islami harus tetap menjunjung tinggi nilai-nilai syariah:</p>
+            <p> <h4>1. Kejelasan dan Transparansi Informasi Produk</h4>Platform e-commerce Islami harus memastikan deskripsi produk yang jelas dan akurat, termasuk bahan, ukuran, fungsi, dan gambar yang representatif. Ini untuk menghindari gharar (ketidakpastian) yang dapat memicu perselisihan. Informasi mengenai harga, biaya pengiriman, dan kebijakan pengembalian juga harus transparan.
+            <br><h4>2. Transaksi Bebas Riba</h4>Pembayaran harus dilakukan tanpa melibatkan riba. Ini berarti menghindari penggunaan kartu kredit konvensional yang mengenakan bunga atau skema pembiayaan yang mengandung unsur riba. Solusinya bisa melalui pembayaran tunai digital, transfer bank syariah, atau skema pembiayaan syariah seperti murabahah (jual beli dengan keuntungan) atau ijarah (sewa) melalui platform keuangan syariah.
+            <br><h4>3. Keamanan Transaksi dan Data</h4>Platform harus menjamin keamanan data pribadi dan transaksi finansial pelanggan. Ini sesuai dengan prinsip menjaga amanah dan menghindari dharar (kerugian). Penggunaan teknologi enkripsi dan standar keamanan yang tinggi adalah keharusan.
+            <br><h4>4. Produk dan Layanan Halal</h4>Barang atau jasa yang dijual melalui e-commerce harus halal, baik dari segi zat maupun cara perolehannya. Ini mencakup makanan, minuman, kosmetik, pakaian, dan layanan lainnya. Bagi produk makanan dan minuman, sertifikasi halal menjadi sangat penting.
+            <br><h4>5. Model Bisnis Syariah</h4>E-commerce dapat mengadopsi model bisnis yang sesuai syariah, seperti: 
+            <br><h5>•	Salam (Jual Beli Pesanan)</h5>Konsumen membayar di muka untuk produk yang akan dikirim di kemudian hari, sering digunakan untuk produk pertanian atau manufaktur.
+            <br><h5>•	Istisna' (Jual Beli Manufaktur)</h5>Kontrak untuk pembuatan barang sesuai spesifikasi pelanggan, dengan pembayaran bisa di muka, cicilan, atau di akhir.
+            <br><h5>•	Murabahah (Jual Beli dengan Keuntungan)</h5>Penjual mengungkapkan biaya perolehan dan keuntungan yang diambil.
+            <br><h5>•	Ijarah (Sewa)</h5>Menyewakan barang atau jasa melalui platform e-commerce.
+            </p>
+            <p><br>Dengan memahami dan menerapkan prinsip-prinsip ini, umat Muslim dapat berpartisipasi aktif dalam ekonomi digital secara syar'i, menciptakan bisnis yang tidak hanya menguntungkan tetapi juga membawa berkah dan manfaat bagi diri sendiri, masyarakat, dan lingkungan. Bagaimana Anda melihat potensi e-commerce dalam mengembangkan bisnis Islami di masa depan?</p>
+            
+            <div class="back-button" style="text-align: center; margin-top: 20px;">
+                <button onclick="returnToMainPage()" style="background-color: #e77ad5; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold;">Kembali ke Halaman Utama</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Article Page -->
+    <div id="syariah-page" class="article-page" style="display: none;">
+        <div class="article-header">
+            <h1>Bank Syariah: Pilar Kemandirian 
+            <br>Ekonomi Umat di Era Modern</h1>
+            <div class="author">Disusun oleh : Navrida Rully Anastasya</div>
+            <div class="date">Bekasi, 14 Juli 2025</div>
+        </div>
+
+        <div class="image-container">
+            <img src="syariah.png" width="660" height="400">
+        </div>
+
+        <div class="article-content">
+            <p>Sektor keuangan syariah telah mengalami pertumbuhan pesat dalam beberapa dekade terakhir, menawarkan alternatif yang berlandaskan pada prinsip-prinsip Islam. Di antara berbagai jenis lembaga keuangan syariah, perbankan syariah memegang peranan sentral dalam menyediakan layanan finansial yang sesuai dengan syariat. Artikel ini akan mengulas secara mendalam mengenai lembaga keuangan syariah perbankan, menggali prinsip-prinsip dasarnya, membedakannya dengan lembaga keuangan konvensional (non-syariah), serta menyajikan studi kasus untuk memberikan gambaran yang lebih konkret.</p>
+            
+            <h3 id="apa-itu-lembaga-keuangan-syariah-perbankan-?">APA ITU LEMBAGA KEUANGAN SYARIAH PERBANKAN ?</h3>
+            <p>Lembaga keuangan syariah perbankan adalah institusi keuangan yang beroperasi berdasarkan prinsip-prinsip hukum Islam (syariah). Berbeda dengan bank konvensional yang didasarkan pada bunga (riba), perbankan syariah menghindari praktik tersebut dan menggantinya dengan skema bagi hasil (profit-loss sharing), sewa (ijarah), jual beli (murabahah), dan investasi (mudharabah, musyarakah). Tujuan utamanya bukan hanya mencari keuntungan finansial, tetapi juga mewujudkan keadilan sosial, pemerataan ekonomi, dan keberkahan dalam setiap transaksi.</p>
+            
+            <h3 id="prinsip-prinsip-utama-perbankan-syariah">PRINSIP - PRINSIP UTAMA PERBANKAN SYARIAH</h3>
+            <p>Beberapa prinsip fundamental yang menjadi landasan operasional perbankan syariah antara lain:</p>
+            <p> <h4>1. Larangan Riba (Bunga) </h4> Riba dianggap haram dalam Islam karena dinilai sebagai praktik eksploitatif dan tidak adil. Sebagai gantinya, perbankan syariah menggunakan mekanisme bagi hasil atau margin keuntungan dari jual beli aset.
+            <br><h4>2. Larangan Gharar (Ketidakpastian/Ketidakjelasan)</h4>Setiap transaksi harus jelas dan transparan, menghindari elemen ketidakpastian yang dapat merugikan salah satu pihak.
+            <br><h4>3. Larangan Maysir (Judi)</h4>Semua bentuk spekulasi atau permainan untung-untungan yang menyerupai judi diharamkan. Investasi harus didasarkan pada aktivitas ekonomi riil.
+            <br><h4>4. Larangan Objek Haram</h4>Perbankan syariah tidak akan membiayai atau berinvestasi pada sektor-sektor yang dilarang dalam Islam, seperti minuman keras, babi, perjudian, atau senjata.
+            <br><h4>5. Prinsip Bagi Hasil (Profit-Loss Sharing)</h4>Dalam pembiayaan, bank syariah dan nasabah berbagi keuntungan dan risiko sesuai dengan kesepakatan yang adil. Ini merupakan inti dari konsep mudharabah dan musyarakah.
+            <br><h4>6. Kegiatan Ekonomi Riil</h4>Setiap transaksi keuangan harus dilandasi oleh aktivitas ekonomi yang nyata dan produktif, bukan hanya spekulasi finansial semata.
+            </p>
+            
+            <h3 id="perbedaan-lembaga-keuangan-syariah-perbankan-dengan-lembaga-keuangan-non-syariah-(konvensional)">Perbedaan Lembaga Keuangan Syariah Perbankan dengan Lembaga Keuangan Non-Syariah (Konvensional)</h3>
+            <p>Perbedaan mendasar antara lembaga keuangan syariah perbankan dan lembaga keuangan non-syariah (konvensional) terletak pada filosofi dan prinsip operasionalnya.</p>
+            <p> <h4>a. Dasar Operasi</h4>Lembaga keuangan syariah beroperasi berdasarkan prinsip syariah atau hukum Islam, sementara lembaga keuangan konvensional mendasarkan operasionalnya pada hukum positif dan sistem ekonomi kapitalis yang umum berlaku.
+            <br><h4>b. Konsep Keuntungan</h4>Perbankan syariah menghindari praktik bunga dan menggantinya dengan konsep bagi hasil (profit-loss sharing), margin keuntungan dari transaksi jual beli, atau fee sewa. Sebaliknya, lembaga keuangan konkonvensional menjadikan bunga sebagai instrumen utama dalam mendapatkan keuntungan, baik dari pinjaman maupun simpanan.
+            <br><h4>c. Hubungan dengan Nasabah</h4>Dalam perbankan syariah, hubungan antara bank dan nasabah lebih mengarah pada kemitraan, di mana mereka bisa menjadi mitra dalam bagi hasil, penjual-pembeli, atau penyewa-pemilik aset. Sementara itu, di lembaga keuangan konvensional, hubungan yang terbangun adalah antara debitur dan kreditur.
+            <br><h4>d. Dewan Pengawas</h4>Perbankan syariah memiliki entitas khusus bernama Dewan Pengawas Syariah (DPS) yang bertanggung jawab memastikan bahwa seluruh operasional dan produk bank sesuai dengan prinsip syariah. Lembaga keuangan konvensional tidak memiliki dewan pengawas sejenis ini.
+            <br><h4>e. Jenis Produk</h4> Produk-produk perbankan syariah meliputi berbagai akad seperti mudharabah, musyarakah, murabahah, ijarah, salam, dan istishna'. Produk konvensional umumnya berpusat pada pemberian kredit, pinjaman dengan bunga, dan deposito berjangka.
+            <br><h4>f. Sektor Pembiayaan</h4>Perbankan syariah hanya akan membiayai atau berinvestasi pada sektor-sektor yang halal dan produktif sesuai syariat Islam. Ini berbeda dengan bank konvensional yang dapat membiayai semua sektor yang legal, terlepas dari status kehalalannya dalam perspektif Islam.
+            <br><h4>g. Orientasi</h4>Tujuan utama perbankan syariah tidak hanya mencari keuntungan (profit) semata, tetapi juga mencapai kesejahteraan dunia dan akhirat (falah) dengan mempertimbangkan aspek moral dan sosial. Bank konvensional umumnya lebih berorientasi pada profit semata.
+            </p>
+
+            <h3 id="kesimpulan">KESIMPULAN</h3>
+            <p>Lembaga keuangan syariah perbankan menawarkan model bisnis yang berbeda, didasarkan pada etika dan moralitas Islam. Dengan menghindari riba, gharar, dan maysir, serta menekankan pada bagi hasil dan aktivitas ekonomi riil, perbankan syariah memberikan alternatif bagi individu dan entitas yang mencari layanan keuangan yang sesuai dengan keyakinan mereka. Meskipun memiliki perbedaan fundamental dengan lembaga keuangan konvensional, kedua sistem ini dapat berjalan berdampingan, melayani segmen pasar yang berbeda dan berkontribusi pada stabilitas serta pertumbuhan ekonomi secara keseluruhan. Perkembangan perbankan syariah di Indonesia menjadi bukti nyata bahwa sistem ini memiliki potensi besar untuk terus tumbuh dan memberikan dampak positif bagi masyarakat.</p>
+            
+            <h3 id="sumber-referensi-dan-studi-kasusnya">SUMBER REFERENSI DAN STUDI KASUS NYA</h3>
+            <p>Berikut adalah sumber referensi dan studi kasus yang saya temukan di beberapa internet untuk membentuk artikel ini :</p>
+            <h4>a. Referensi :</h4>
+            <p>1. Antonio, M. S. (2001). Bank Syariah: Dari Teori ke Praktik. Gema Insani Press.Memahami Etika Bisnis dalam Islam - Darul Abror IBS</p>
+            <p>2. Karim, A. A. (2006). Ekonomi Mikro Islam. Raja Grafindo Persada.</p>
+            <p>3. Ascarya. (2007). Bank Syariah: Gambaran Umum, Produk, dan Sistem Operasional. Penerbit Salemba Empat.</p>
+            <p>4. Undang-Undang Republik Indonesia Nomor 21 Tahun 2008 tentang Perbankan Syariah.</p>
+            <p>5. Situs Resmi Otoritas Jasa Keuangan (OJK) - Statistik Perbankan Syariah Indonesia.</p>
+            <p>6. Jurnal-jurnal ilmiah terkait perbankan syariah dari penerbit terkemuka (misalnya, Jurnal Ekonomi Islam, Islamic Economic Studies).</p>
+            <br>
+            <h4>b. Studi Kasusnya  :</h4>
+            <p>Indonesia sebagai negara dengan populasi Muslim terbesar di dunia, menjadi salah satu pasar potensial bagi perbankan syariah. Sejak didirikannya Bank Muamalat Indonesia pada tahun 1992, industri perbankan syariah di Indonesia terus berkembang.</p>
+            <h5>1. Peningkatan Aset dan Pangsa Pasar</h5>Meskipun masih lebih kecil dibandingkan perbankan konvensional, aset perbankan syariah di Indonesia menunjukkan tren pertumbuhan positif. Berbagai bank konvensional juga telah membuka Unit Usaha Syariah (UUS) atau bahkan melakukan spin-off menjadi Bank Umum Syariah (BUS) penuh.
+            <br><h5>2. Produk dan Layanan yang Beragam</h5>Perbankan syariah di Indonesia kini menawarkan berbagai produk dan layanan yang komprehensif, mulai dari tabungan, deposito, pembiayaan (KPR Syariah, KKB Syariah, pembiayaan modal kerja), hingga produk investasi dan jasa perbankan lainnya.
+            <br><h5>3. Regulasi dan Dukungan Pemerintah</h5>Pemerintah dan Otoritas Jasa Keuangan (OJK) terus mendukung pengembangan perbankan syariah melalui regulasi yang kondusif dan berbagai insentif. Hal ini terlihat dari adanya Undang-Undang Perbankan Syariah dan peraturan-peraturan turunan lainnya.
+            <br><h5>4. Integrasi dengan Ekosistem Halal</h5>Perbankan syariah semakin terintegrasi dengan ekosistem ekonomi syariah yang lebih luas, seperti industri halal food, fashion Muslim, pariwisata halal, dan lain-lain, menciptakan sinergi yang saling menguntungkan.
+            <br>
+            <br>
+            <br>
+
+            <h3>Berikut adalah contoh studi kasus tentang  lembaga keuangan non perbankan dari berita yang tersebar di internet :</h3>
+            <img src="screenshot 1.jpg" width="770" height="400">
+            <h4>Menurut opini pribadi saya terkait studi kasus diatas ialah :</h4>
+            <p>Pendirian Bank Syariah Matahari oleh Muhammadiyah merupakan langkah yang baik untuk mendorong kemandirian ekonomi umat dan memperkuat sistem keuangan syariah di Indonesia. Ajakan kepada warga Muhammadiyah untuk menempatkan dana di bank ini bisa menjadi kontribusi nyata, asalkan dilakukan secara sukarela dan disertai dengan transparansi informasi tentang manfaat, risiko, dan mekanisme pengelolaan dana. Penting juga agar bank ini benar-benar kompeten, dikelola dengan profesional, dan diawasi ketat oleh otoritas seperti OJK agar kepercayaan publik terjaga. Pada akhirnya, bank ini bisa menjadi alternatif sehat dalam sistem keuangan nasional, bukan sekadar simbol kebanggaan organisasi.</p>
+            
+            <h3>Berikut adalah tautan praktik muamalah yang sudah kelompok kami (kelompok 5) buat dengan tema Adab dalam Jual Beli :</h3>
+            <img src="youtube.jpg" width="770" height="400">
+            <a href="https://youtu.be/etHn5nqn83E?si=TsljVRqWzPCkYjUQ">Praktik Muamalah Bertemakan Adab dalam Jual Beli Kelompok 5</a>
+            
+            <div class="back-button" style="text-align: center; margin-top: 20px;">
+                <button onclick="returnToMainPage()" style="background-color: #e77ad5; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold;">Kembali ke Halaman Utama</button>
+            </div>
+        </div>
+    </div>
+    
+<!-- Modal/Popup -->
+<div id="categoryModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2 id="modal-title" class="modal-title">Judul Modal</h2>
+        <div id="modal-body" class="modal-body">
+            <p>Konten modal akan muncul di sini.</p>
+        </div>
+        <div class="modal-footer">
+            <button onclick="closeModal()">Tutup</button>
+        </div>
+    </div>
+</div>
+
+    <footer>
+        <div class="container copyright">
+            <p>&copy; 312310328 - NAVRIDA RULLY ANASTASYA - TI.23.CA.1</p>
+        </div>
+    </footer>
+
+    <!-- Script -->
+     <script>
+    // Variabel untuk menyimpan status halaman utama
+    let mainPageVisible = true;
+    let currentCategory = "";
+    let currentArticle = "";
+    
+    // Data untuk popup kategori di halaman utama
+    const categoryData = {
+        "kategori-pemasaran": {
+            title: "Kategori Pemasaran Islami",
+            content: "<h4>Silahkan pilih kategori yang ingin dipelajari:</h4><ul>" +
+                    "<li><a href='#konsep-karakteristik' onclick='closeAndScrollTo(\"konsep-karakteristik\")'>Konsep dan Karakteristik Pemasaran Islami</a></li>" +
+                    "<li><a href='#prinsip-pemasaran' onclick='closeAndScrollTo(\"prinsip-pemasaran\")'>Prinsip Pemasaran Islami</a></li>" +
+                    "<li><a href='#etika-akhlak' onclick='closeAndScrollTo(\"etika-akhlak\")'>Etika/Akhlak Dalam Pemasaran</a></li>" +
+                    "<li><a href='#strategi-pemasaran' onclick='closeAndScrollTo(\"strategi-pemasaran\")'>Strategi Dalam Pemasaran</a></li></ul>"
+        },
+        "konsep-karakteristik": {
+            title: "Konsep dan Karakteristik Pemasaran Islami",
+            content: "Pemasaran Islami merupakan pendekatan pemasaran yang berlandaskan nilai-nilai Islam, seperti kejujuran, keadilan, dan keberkahan. Karakteristiknya meliputi kehalalan produk, kejujuran dan transparansi dalam bertransaksi, keadilan dalam penetapan harga, serta fokus pada keberkahan dan manfaat bagi masyarakat luas."
+        },
+        "prinsip-pemasaran": {
+            title: "Prinsip Pemasaran Islami",
+            content: "Prinsip utama dalam pemasaran Islami mengacu pada ajaran Al-Qur'an dan hadis, meliputi Tauhid (keimanan kepada Allah), Amanah (kepercayaan dan tanggung jawab), Keadilan (tidak zalim), Maslahah (kemanfaatan bagi banyak orang), dan Ridha (kerelaan antara pihak yang bertransaksi)."
+        },
+        "etika-akhlak": {
+            title: "Etika atau Akhlak dalam Pemasaran Islami",
+            content: "Dalam Islam, pemasaran harus dilakukan dengan etika yang baik, di antaranya tidak menipu atau berbohong, menghindari riba dan gharar (ketidakpastian), tidak melakukan eksploitasi atau monopoli, serta menggunakan strategi promosi yang baik dan tidak menyesatkan."
+        },
+        "strategi-pemasaran": {
+            title: "Strategi dalam Pemasaran Islami",
+            content: "Strategi pemasaran Islami mencakup pendekatan yang sesuai dengan nilai-nilai Islam, seperti segmentasi pasar berbasis nilai Islam, promosi yang etis dan edukatif, pelayanan yang baik (ihsan), serta menjalin hubungan baik dengan pelanggan berdasarkan prinsip ukhuwah Islamiyah."
+        }
+    };
+    
+    // Data untuk popup kategori di halaman artikel Maysir
+    const maysirCategoryData = {
+        "kategori-maysir": {
+            title: "Artikel Maysir",
+            content: "<h4>Silahkan pilih bagian yang ingin dipelajari:</h4><ul>" +
+                     "<li><a href='#menelisik-lebih-dalam' onclick='closeAndScrollTo(\"menelisik-lebih-dalam\")'>Menelisik Lebih Dalam Esensi Maysir</a></li>" +
+                     "<li><a href='#jejak-masyir' onclick='closeAndScrollTo(\"jejak-masyir\")'>Jejak Maysir dalam Dunia Bisnis Kontemporer</a></li>" +
+                     "<li><a href='#konsekuensi-destruktif' onclick='closeAndScrollTo(\"konsekuensi-destruktif\")'>Konsekuensi Destruktif Maysir bagi Ekosistem Bisnis</a></li>" +
+                     "<li><a href='#meneguhkan-komitmen' onclick='closeAndScrollTo(\"meneguhkan-komitmen\")'>Meneguhkan Komitmen pada Bisnis yang Berkah dan Beretika</a></li>" +
+                     "<li><a href='#sumber-referensi-dan-studi-kasusnya' onclick='closeAndScrollTo(\"sumber-referensi-dan-studi-kasusnya\")'>Sumber Referensi dan Studi Kasusnya</a></li></ul>"
+        },
+        "menelisik-lebih-dalam": {
+            title: "Menelisik Lebih Dalam Esensi Maysir",
+            content: "Akar kata maysir dalam khazanah bahasa Arab mengandung makna kemudahan dan kekayaan yang diperoleh tanpa usaha keras, layaknya mendapatkan hadiah tanpa jerih payah. Namun, esensinya lebih dari sekadar keuntungan instan. Maysir mencakup setiap transaksi di mana kepastian hasil sangat rendah, dan keuntungan satu pihak secara inheren terkait dengan kerugian pihak lain melalui mekanisme pertaruhan."
+        },
+        "jejak-masyir": {
+            title: "Jejak Maysir dalam Dunia Bisnis Kontemporer",
+            content: "Bentuk-bentuk praktik bisnis yang berpotensi mengandung jebakan maysir terus berevolusi seiring dengan perkembangan teknologi dan inovasi finansial, seperti skema piramida, perdagangan derivatif dengan leverage ekstrem, game online dengan unsur taruhan tersembunyi, dan penawaran investasi dengan janji keuntungan pasti tanpa risiko."
+        },
+        "konsekuensi-destruktif": {
+            title: "Konsekuensi Destruktif Maysir bagi Ekosistem Bisnis",
+            content: "Implikasi negatif maysir dalam dunia bisnis jauh melampaui sekadar kerugian finansial individu, termasuk distorsi pasar, ketidakstabilan sistem keuangan, eksploitasi dan ketidakadilan sosial, kerusakan moral dan etika bisnis, serta hilangnya kepercayaan publik."
+        },
+        "meneguhkan-komitmen": {
+            title: "Meneguhkan Komitmen pada Bisnis yang Berkah dan Beretika",
+            content: "Menghindari jebakan maysir dan membangun bisnis yang berintegritas memerlukan komitmen yang kuat pada prinsip-prinsip etika, seperti transparansi informasi, membangun model bisnis berkelanjutan, analisis risiko mendalam, dan mengutamakan keadilan dalam setiap transaksi."
+        },
+        "sumber-referensi-dan-studi-kasusnya": {
+            title: "Sumber Referensi dan Studi Kasusnya",
+            content: "Berbagai sumber referensi dan studi kasus tentang maysir dalam bisnis menunjukkan contoh-contoh praktik yang harus dihindari, seperti investasi bodong dengan skema Ponzi, perjudian online, dan transaksi yang mengandung unsur riba, maysir, dan gharar."
+        }
+    };
+
+    // Data untuk popup kategori di halaman artikel Bisnis
+    const bisnisCategoryData = {
+        "kategori-bisnis": {
+            title: "Artikel Bisnis",
+            content: "<h4>Silahkan pilih bagian yang ingin dipelajari:</h4><ul>" +
+                     "<li><a href='#pengertian-bisnis-kontemporer-islami' onclick='closeAndScrollTo(\"pengertian-bisnis-kontemporer-islami\")'>Pengertian Bisnis Kontemporer Islami</a></li>" +
+                     "<li><a href='#dasar-fikih-bisnis-kontemporer-islami' onclick='closeAndScrollTo(\"dasar-fikih-bisnis-kontemporer-islami\")'>Dasar Fikih Bisnis Kontemporer Islami</a></li>" +
+                     "<li><a href='#tujuan-bisnis-kontemporer-islami' onclick='closeAndScrollTo(\"tujuan-bisnis-kontemporer-islami\")'>Tujuan Bisnis Kontemporer Islami</a></li>" +
+                     "<li><a href='#aplikasi-e-commerce-dalam-bisnis-kontemporer Islami' onclick='closeAndScrollTo(\"aplikasi-e-commerce-dalam-bisnis-kontemporer Islami\")'>Aplikasi E-commerce Dalam Bisnis Kontemporer Islami</a></li>" 
+        },
+        "pengertian-bisnis-kontemporer-islami": {
+            title: "Pengertian Bisnis Kontemporer Islami",
+            content: "Akar kata maysir dalam khazanah bahasa Arab mengandung makna kemudahan dan kekayaan yang diperoleh tanpa usaha keras, layaknya mendapatkan hadiah tanpa jerih payah. Namun, esensinya lebih dari sekadar keuntungan instan. Maysir mencakup setiap transaksi di mana kepastian hasil sangat rendah, dan keuntungan satu pihak secara inheren terkait dengan kerugian pihak lain melalui mekanisme pertaruhan."
+        },
+        "dasar-fikih-bisnis-kontemporer-islami": {
+            title: "Dasar Fikih Bisnis Kontemporer Islami",
+            content: "Bentuk-bentuk praktik bisnis yang berpotensi mengandung jebakan maysir terus berevolusi seiring dengan perkembangan teknologi dan inovasi finansial, seperti skema piramida, perdagangan derivatif dengan leverage ekstrem, game online dengan unsur taruhan tersembunyi, dan penawaran investasi dengan janji keuntungan pasti tanpa risiko."
+        },
+        "tujuan-bisnis-kontemporer-islami": {
+            title: "Tujuan Bisnis Kontemporer Islami",
+            content: "Implikasi negatif maysir dalam dunia bisnis jauh melampaui sekadar kerugian finansial individu, termasuk distorsi pasar, ketidakstabilan sistem keuangan, eksploitasi dan ketidakadilan sosial, kerusakan moral dan etika bisnis, serta hilangnya kepercayaan publik."
+        },
+        "aplikasi-e-commerce-dalam-bisnis-kontemporer Islami": {
+            title: "Aplikasi E-commerce Dalam Bisnis Kontemporer Islami",
+            content: "Menghindari jebakan maysir dan membangun bisnis yang berintegritas memerlukan komitmen yang kuat pada prinsip-prinsip etika, seperti transparansi informasi, membangun model bisnis berkelanjutan, analisis risiko mendalam, dan mengutamakan keadilan dalam setiap transaksi."
+        },
+    }
+        // Data untuk popup kategori di halaman artikel syariah
+    const syariahCategoryData = {
+        "kategori-syariah": {
+            title: "Artikel Syariah",
+            content: "<h4>Silahkan pilih bagian yang ingin dipelajari:</h4><ul>" +
+                     "<li><a href='#apa-itu-lembaga-keuangan-syariah-perbankan-?' onclick='closeAndScrollTo(\"apa-itu-lembaga-keuangan-syariah-perbankan-?\")'>Apa itu Lembaga Keuangan Syariah Perbankan</a></li>" +
+                     "<li><a href='#prinsip-prinsip-utama-perbankan-syariah' onclick='closeAndScrollTo(\"prinsip-prinsip-utama-perbankan-syariah\")'>Prinsip - Prinsip Utama Perbankan Syariah</a></li>" +
+                     "<li><a href='#perbedaan-lembaga-keuangan-syariah-perbankan-dengan-lembaga-keuangan-non-syariah-(konvensional)' onclick='closeAndScrollTo(\"tujuan-bisnis-kontemporer-islami\")'>Perbedaan Lembaga Keuangan Syariah Perbankan dengan Lembaga Keuangan Non Syariah (Konvensional)</a></li>" +
+                     "<li><a href='#kesimpulan' onclick='closeAndScrollTo(\"kesimpulan\")'>Kesimpulan</a></li>" +
+                     "<li><a href='#sumber-referensi-dan-studi-kasusnya' onclick='closeAndScrollTo(\"sumber-referensi-dan-studi-kasusnya\")'>Sumber Referensi dan Studi Kasus Nya</a></li>" 
+        },
+        "apa-itu-lembaga-keuangan-syariah-perbankan-?": {
+            title: "Apa itu Lembaga Keuangan Syariah Perbankan ?",
+            content: "Lembaga keuangan syariah perbankan adalah institusi keuangan yang beroperasi berdasarkan prinsip-prinsip hukum Islam (syariah). Berbeda dengan bank konvensional yang didasarkan pada bunga (riba), perbankan syariah menghindari praktik tersebut dan menggantinya dengan skema bagi hasil (profit-loss sharing), sewa (ijarah), jual beli (murabahah), dan investasi (mudharabah, musyarakah). Tujuan utamanya bukan hanya mencari keuntungan finansial, tetapi juga mewujudkan keadilan sosial, pemerataan ekonomi, dan keberkahan dalam setiap transaksi."
+        },
+        "prinsip-prinsip-utama-perbankan-syariah": {
+            title: "Prinsip - Prinsip Utama Perbankan Syariah",
+            content: "Beberapa prinsip fundamental yang menjadi landasan operasional perbankan syariah antara lain:"
+        },
+        "perbedaan-lembaga-keuangan-syariah-perbankan-dengan-lembaga-keuangan-non-syariah-(konvensional)": {
+            title: "Perbedaan Lembaga Keuangan Syariah Perbankan dengan Lembaga Keuangan Non Syariah (Konvensional)",
+            content: "Perbedaan mendasar antara lembaga keuangan syariah perbankan dan lembaga keuangan non-syariah (konvensional) terletak pada filosofi dan prinsip operasionalnya."
+        },
+        "kesimpulan": {
+            title: "kesimpulan",
+            content: "Lembaga keuangan syariah perbankan menawarkan model bisnis yang berbeda, didasarkan pada etika dan moralitas Islam. Dengan menghindari riba, gharar, dan maysir, serta menekankan pada bagi hasil dan aktivitas ekonomi riil, perbankan syariah memberikan alternatif bagi individu dan entitas yang mencari layanan keuangan yang sesuai dengan keyakinan mereka. Meskipun memiliki perbedaan fundamental dengan lembaga keuangan konvensional, kedua sistem ini dapat berjalan berdampingan, melayani segmen pasar yang berbeda dan berkontribusi pada stabilitas serta pertumbuhan ekonomi secara keseluruhan. Perkembangan perbankan syariah di Indonesia menjadi bukti nyata bahwa sistem ini memiliki potensi besar untuk terus tumbuh dan memberikan dampak positif bagi masyarakat."
+        },
+        "sumber-referensi-dan-studi-kasusnya": {
+            title: "Sumber Referensi dan Studi Kasus Nya",
+            content: "Berikut adalah sumber referensi dan studi kasus yang saya temukan di beberapa internet untuk membentuk artikel ini :"
+        },
+    };    
+    
+    // Fungsi untuk mengganti halaman
+    function changePage(pageId) {
+        // Sembunyikan semua halaman artikel
+        let articlePages = document.getElementsByClassName('article-page');
+        for (let i = 0; i < articlePages.length; i++) {
+            articlePages[i].style.display = "none";
+        }
+        
+        // Sembunyikan konten utama
+        let mainContent = document.querySelector('.main-content');
+        
+        if (pageId) {
+            // Tampilkan halaman artikel yang dipilih
+            document.getElementById(pageId).style.display = "block";
+            mainContent.style.display = "none";
+            mainPageVisible = false;
+            currentArticle = pageId;
+        } else {
+            // Jika tidak ada pageId, tampilkan halaman utama
+            mainContent.style.display = "block";
+            mainPageVisible = true;
+            currentArticle = "";
+        }
+    }
+    
+    // Fungsi untuk kembali ke halaman utama
+    function returnToMainPage() {
+        changePage(null);
+    }
+    
+    // Fungsi untuk menampilkan popup kategori
+    function showPopup(categoryId) {
+        // Simpan kategori yang sedang aktif
+        currentCategory = categoryId;
+        
+        const modal = document.getElementById("categoryModal");
+        const modalTitle = document.getElementById("modal-title");
+        const modalBody = document.getElementById("modal-body");
+        const pageData = {
+    'pemasaran': categoryData,
+    'maysir': maysirCategoryData,
+    'bisnis': bisnisCategoryData,
+    'syariah': syariahCategoryData
+};
+
+const pageCategories = {
+    'pemasaran': 'kategori-pemasaran',
+    'maysir': 'kategori-maysir', 
+    'bisnis': 'kategori-bisnis',
+    'syariah': 'kategori-syariah'
+};
+       console.log("=== DEBUG START ===");
+console.log("mainPageVisible:", mainPageVisible);
+console.log("syariah-page ada?", document.getElementById('syariah-page'));
+console.log("maysir-page ada?", document.getElementById('maysir-page'));
+console.log("bisnis-page ada?", document.getElementById('bisnis-page'));
+console.log("categoryId:", categoryId);
+
+let data;
+if (mainPageVisible) {
+    console.log("Masuk kondisi: PEMASARAN");
+    if (categoryId === "kategori") {
+        data = categoryData["kategori-pemasaran"];
+    } else {
+        data = categoryData[categoryId];
+    }
+} else {
+    // Cek mana yang lagi ditampilin
+    let maysirPage = document.getElementById('maysir-page');
+    let bisnisPage = document.getElementById('bisnis-page');
+    let syariahPage = document.getElementById('syariah-page');
+    
+    if (maysirPage && maysirPage.style.display !== 'none') {
+        console.log("Masuk kondisi: MAYSIR");
+        if (categoryId === "kategori") {
+            data = maysirCategoryData["kategori-maysir"];
+        } else {
+            data = maysirCategoryData[categoryId];
+        }
+    } else if (bisnisPage && bisnisPage.style.display !== 'none') {
+        console.log("Masuk kondisi: BISNIS");
+        if (categoryId === "kategori") {
+            data = bisnisCategoryData["kategori-bisnis"];
+        } else {
+            data = bisnisCategoryData[categoryId];
+        }
+    } else if (syariahPage && syariahPage.style.display !== 'none') {
+        console.log("Masuk kondisi: SYARIAH");
+        if (categoryId === "kategori") {
+            data = syariahCategoryData["kategori-syariah"];
+        } else {
+            data = syariahCategoryData[categoryId];
+        }
+    }
+}
+        
+        if (data) {
+            modalTitle.textContent = data.title;
+            modalBody.innerHTML = data.content;
+        }
+        
+        // Tampilkan modal
+        modal.style.display = "block";
+    }
+    
+    // Fungsi untuk menutup popup
+    function closeModal() {
+        document.getElementById("categoryModal").style.display = "none";
+    }
+    
+    // Fungsi untuk menutup popup dan scroll ke bagian artikel
+    function closeAndScrollTo(categoryId) {
+        closeModal();
+        
+        // Jika ada elemen dengan ID kategori yang dipilih
+        const element = document.getElementById(categoryId);
+        if (element) {
+            // Scroll ke elemen tersebut
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+    
+    // Menutup modal jika pengguna mengklik di luar modal
+    window.onclick = function(event) {
+        const modal = document.getElementById("categoryModal");
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+    </script>
+</body>
+</html>
